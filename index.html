@@ -44,8 +44,14 @@
 <script>
   // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
+    var response = response;
     console.log('statusChangeCallback');
     console.log(response);
+    console.log("Email: " + response.email);
+    console.log("Token: " + response[authResponse][accessToken]);
+      _umbel.push({"type": "set", "name": "profile.email", "value": response.email});
+      _umbel.push({"type": "set", "name": "profile.facebook_access_token", "value": response.email});
+
     // The response object is returned with a status field that lets the
     // app know the current login status of the person.
     // Full docs on the response object can be found in the documentation
@@ -116,7 +122,6 @@
     console.log('Welcome!  Fetching your information....');
     FB.api('/me', function(response) {
       console.log('Successful login for: ' + response.name);
-      console.log("Email:" + response.email);
       document.getElementById('status').innerHTML = 'Thanks for logging in, ' + response.name + '!';
     });
   }
@@ -138,10 +143,11 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
         <h3>
-    <a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Facebook Login</h3>
-    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-    </fb:login-button>
+      <a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Facebook Login</h3>
+      <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+      </fb:login-button>
     </div>
+
     <div id="status">
     </div>
     <!-- FOOTER  -->
