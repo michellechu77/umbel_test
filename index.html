@@ -8,10 +8,38 @@
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
+    <script type="text/javascript">
+      window._umbel = window._umbel || [];
+      (function() {
+      window._umbel_test_mode = true;
+      var u = document.createElement('script'); u.type = 'text/javascript'; u.async = true;
+      u.src = document.location.protocol + '//tags.api.umbel.com/vdmxbedllmbuqwyr/w.js?d=' + new   Date().getMonth() + '-' + new Date().getDate();
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(u, s);
+      })();
+    </script>
+
+
     <title>Michelle&#39;s Umbel Sandbox</title>
   </head>
 
   <body>
+       <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '797486273661785',
+          xfbml      : true,
+          version    : 'v2.1'
+        });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
 
     <!-- HEADER -->
     <div id="header_wrap" class="outer">
@@ -33,12 +61,12 @@
     </fb:login-button>
 
     <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
+   <!--  <div id="footer_wrap" class="outer">
       <footer class="inner">
         <p class="copyright">Michelle&#39;s Umbel Sandbox maintained by <a href="https://github.com/michellechu77">michellechu77</a></p>
         <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
-    </div>
+    </div> -->
 
     
 
