@@ -116,6 +116,8 @@
   function testAPI() {
     console.log('Welcome!  Fetching your information....');
     FB.api('/me', function(response) {
+      var testing = response;
+      debugger;
       console.log('Successful login for: ' + response.name);
       console.log("Email: " + response.email);
       console.log("Token: " + response[authResponse][acessToken]);
