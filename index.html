@@ -122,7 +122,36 @@
       console.log("Email: " + response.email);
       console.log("Token: " + response[authResponse][acessToken]);
       _umbel.push({"type": "set", "name": "profile.email", "value": response.email});
-      _umbel.push({"type": "set", "name": "profile.facebook_access_token", "value": response[authResponse][acessToken]});
+      _umbel.push({"type": "set", "name": "profile.facebook_access_token", "value": FB.getAuthResponse()["accessToken"]});
+
+      if (response.gender == "female") {
+        music_behavior = "Electronic Folk";
+      } else if (response.gender == "male") {
+        music_behavior = "Country Rap";
+      } else {
+        music_behavior = "Indie Hipster";
+      }
+
+      frequency = response.id[response.id.length - 1]
+
+      if (frequency == 0) {
+        concert_frequency = "Never";
+      } else if (frequency >= 1 && frequency <= 4) {
+        concert_frequency = "Sometimes";
+      } else
+        concert_frequency = "Frequent";
+
+      if (frequency > 0) {
+        if (frequency % 2 == 0) {
+          ticket = "General";
+        } else {
+          ticket = "VIP"
+        }
+      }
+
+      _umbel.push({"type": "set", "name": "action.tag", "value": ["Music Preference", music_behavior]});
+      _umbel.push({"type": "set", "name": "action.tag", "value": ["Concert Frequency", frequency]});
+      _umbel.push({"type": "set", "name": "action.tag", "value": ["Ticket", ticket]});
       document.getElementById('status').innerHTML = 'Thanks for logging in, ' + response.name + '!';
     });
   }
