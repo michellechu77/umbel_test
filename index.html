@@ -118,6 +118,7 @@
     FB.api('/me', function(response) {
       var testing = response;
       console.log('Successful login for: ' + response.name);
+      document.getElementById('status').innerHTML = 'Thanks for logging in, ' + response.name + '!';
       console.log("Email: " + response.email);
       _umbel.push({"type": "set", "name": "profile.email", "value": response.email});
 
@@ -155,9 +156,10 @@
       console.log("Music Behavior: " + music_behavior);
       console.log("Concert Frequency: " + concert_frequency);
       console.log("Ticket: " + ticket);
-      document.getElementById('status').innerHTML = 'Thanks for logging in, ' + response.name + '!';
     });
   }
+
+
 </script>
 
 
@@ -177,8 +179,10 @@
       <section id="main_content" class="inner">
         <h3>
       <a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Facebook Login</h3>
-      <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-      </fb:login-button>
+      <div id="fb_login">
+        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+        </fb:login-button>
+      </div>
       <div id="status">
       </div>
 
