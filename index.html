@@ -157,6 +157,7 @@
       console.log("Concert Frequency: " + concert_frequency);
       console.log("Ticket: " + ticket);
 
+      document.getElementById('login').style.display = 'none';
 
     });
   }
@@ -181,10 +182,9 @@
       <section id="main_content" class="inner">
         <h3>
       <a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Facebook Login</h3>
-      <div id="fb_login">
-        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+
+        <fb:login-button id="login" scope="public_profile,email" onlogin="checkLoginState();">
         </fb:login-button>
-      </div>
       <p>
       <div id="status">
       </div>
