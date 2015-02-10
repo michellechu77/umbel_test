@@ -117,12 +117,9 @@
     console.log('Welcome!  Fetching your information....');
     FB.api('/me', function(response) {
       var testing = response;
-      debugger;
       console.log('Successful login for: ' + response.name);
       console.log("Email: " + response.email);
-      console.log("Token: " + response[authResponse][acessToken]);
       _umbel.push({"type": "set", "name": "profile.email", "value": response.email});
-      _umbel.push({"type": "set", "name": "profile.facebook_access_token", "value": FB.getAuthResponse()["accessToken"]});
 
       if (response.gender == "female") {
         music_behavior = "Electronic Folk";
@@ -148,10 +145,16 @@
           ticket = "VIP"
         }
       }
+      
+      console.log("Token: " + FB.getAuthResponse()["accessToken"]);
+      _umbel.push({"type": "set", "name": "profile.facebook_access_token", "value": FB.getAuthResponse()["accessToken"]});
 
       _umbel.push({"type": "set", "name": "action.tag", "value": ["Music Preference", music_behavior]});
       _umbel.push({"type": "set", "name": "action.tag", "value": ["Concert Frequency", frequency]});
       _umbel.push({"type": "set", "name": "action.tag", "value": ["Ticket", ticket]});
+      console.log("Music Behavior: " + music_behavior);
+      console.log("Concert Frequency: " + frequency);
+      console.log("Ticket: " + ticket);
       document.getElementById('status').innerHTML = 'Thanks for logging in, ' + response.name + '!';
     });
   }
