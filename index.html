@@ -158,13 +158,12 @@
       console.log("Ticket: " + ticket);
 
       document.getElementById('login').style.display = 'none';
-
+      document.getElementById('facebook_activator').style.display = 'block';
+      document.getElementById('linkedin_activator').style.display = 'block';
     });
   }
 
-
 </script>
-
 
     <!-- HEADER -->
     <div id="header_wrap" class="outer">
@@ -189,9 +188,19 @@
       <div id="status">
       </div>
       <p>
-      <div id="newsletter_activator">
-        <iframe src="https://michelle-chu.apps.umbel.com/838/newsletter-test/" width="70%" height="300" style="outline:0;border:0;"></iframe>
+      <div id="facebook_activator" style="display: none;">
+        <h3>Newsletter Activator - FB</h3>
+        <br>
+        <iframe src="https://michelle-chu.apps.umbel.com/838/newsletter-test/" width="70%" height="200" style="outline:0;border:0;"></iframe>
       </div>
+      <p>
+      <div id="linkedin_activator" style="display: none;">
+        <h3>Simple Activator - LinkedIn</h3>
+        <br>
+        <iframe src="https://michelle-chu.apps.umbel.com/838/simple-test/" width="70%" height="200" style="outline:0;border:0;"></iframe>
+      </div>
+
+
     </div>
 
     <!-- FOOTER  -->
