@@ -25,7 +25,7 @@
   <script>
   window.fbAsyncInit = function() {
     FB.init({
-      appId      : '650445255078191',
+      appId      : '413085398818975',
       xfbml      : true,
       version    : 'v2.2'
     });
@@ -53,7 +53,7 @@
     // for FB.getLoginStatus().
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
-      testAPI();
+      pushInfoToUmbel();
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       document.getElementById('status').innerHTML = 'Please log ' +
@@ -77,7 +77,7 @@
 
   window.fbAsyncInit = function() {
   FB.init({
-    appId      : '650445255078191',
+    appId      : '413085398818975',
     cookie     : true,  // enable cookies to allow the server to access 
                         // the session
     xfbml      : true,  // parse social plugins on this page
@@ -113,7 +113,7 @@
 
   // Here we run a very simple test of the Graph API after login is
   // successful.  See statusChangeCallback() for when this call is made.
-  function testAPI() {
+  function pushInfoToUmbel() {
     console.log('Welcome!  Fetching your information....');
     FB.api('/me', function(response) {
       var testing = response;
@@ -145,15 +145,15 @@
           ticket = "VIP"
         }
       }
-      
+
       console.log("Token: " + FB.getAuthResponse()["accessToken"]);
       _umbel.push({"type": "set", "name": "profile.facebook_access_token", "value": FB.getAuthResponse()["accessToken"]});
 
       _umbel.push({"type": "set", "name": "action.tag", "value": ["Music Preference", music_behavior]});
-      _umbel.push({"type": "set", "name": "action.tag", "value": ["Concert Frequency", frequency]});
+      _umbel.push({"type": "set", "name": "action.tag", "value": ["Concert Frequency", concert_frequency]});
       _umbel.push({"type": "set", "name": "action.tag", "value": ["Ticket", ticket]});
       console.log("Music Behavior: " + music_behavior);
-      console.log("Concert Frequency: " + frequency);
+      console.log("Concert Frequency: " + concert_frequency);
       console.log("Ticket: " + ticket);
       document.getElementById('status').innerHTML = 'Thanks for logging in, ' + response.name + '!';
     });
@@ -179,10 +179,10 @@
       <a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Facebook Login</h3>
       <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
       </fb:login-button>
-    </div>
-
     <div id="status">
     </div>
+    </div>
+
     <!-- FOOTER  -->
    <!--  <div id="footer_wrap" class="outer">
       <footer class="inner">
