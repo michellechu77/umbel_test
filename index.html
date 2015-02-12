@@ -148,11 +148,11 @@
       }
 
       console.log("Token: " + FB.getAuthResponse()["accessToken"]);
-      _umbel.push({"type": "set", "name": "profile.facebook_access_token", "value": FB.getAuthResponse()["accessToken"]});
+      _umbel.push({"type":"set", "name":"profile.facebook_access_token","value": FB.getAuthResponse()["accessToken"]});
 
-      _umbel.push({"type": "set", "name": "action.tag", "value": ["Music Preference", music_behavior]});
-      _umbel.push({"type": "set", "name": "action.tag", "value": ["Concert Frequency", concert_frequency]});
-      _umbel.push({"type": "set", "name": "action.tag", "value": ["Ticket", ticket]});
+      _umbel.push({"type":"set", "name":"action.tag", "value":["Music Preference", music_behavior]});
+      _umbel.push({"type":"set", "name":"action.tag", "value":["Concert Frequency", concert_frequency]});
+      _umbel.push({"type":"set", "name":"action.tag", "value":["Ticket", ticket]});
       console.log("Music Behavior: " + music_behavior);
       console.log("Concert Frequency: " + concert_frequency);
       console.log("Ticket: " + ticket);
